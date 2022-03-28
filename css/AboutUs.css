@@ -1,0 +1,26 @@
+* {
+  font-family: 'Prompt', sans-serif;
+}
+
+a {
+  font-size: 45px;
+  
+  color:black;
+}
+h1{
+  font-size: 37px;
+}
+body {
+ background-color: #99ced3;
+}
+div {
+  display: grid;
+  width:30%;
+  font-size: 20px;
+  background-color:#edb5bf;
+  color: #4d609a;
+}
+h2 {
+  font-size: 20px;
+  color: #5f6366
+}
