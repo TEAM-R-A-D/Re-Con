@@ -1,7 +1,7 @@
 'use strict';
 
-// GET storage
-// let retrievedAccounts = localStorage.getItem('accounts');
+// PROCURE storage
+// let procuredAccounts = localStorage.getItem('accounts');
 
 // PARSE storage
 // let parsedAccounts = JSON.parse(retrievedAccounts);
@@ -14,10 +14,10 @@ let imageArray = [];
 // collect images
 function collectImages () {
   for (let i = 1; i < 11; i++) {
-    imageArray.push(`/img/dog${i}.png`);
+    imageArray.push(`img/dog${i}.png`);
   }
   for (let j = 1; j < 11; j++) {
-    imageArray.push(`/img/dog${j}.png`);
+    imageArray.push(`img/dog${j}.png`);
   }
 }
 
@@ -52,7 +52,11 @@ function renderTable() {
       // create an image element
       let imgElement = document.createElement('img');
       // add context
-      imgElement.src = imageArray[randomNumberZeroToNineteen(0, 19)];
+      /////////////////// NEED A METHOD BESIDES SPLICE?
+      let randomNumber = imageArray.splice(randomNumberZeroToNineteen(1,imageArray.length));
+      console.log(randomNumber);
+      ///////////////////
+      imgElement.src = imageArray[randomNumber];
       // add to DOM
       tdElement.append(imgElement);
     }
