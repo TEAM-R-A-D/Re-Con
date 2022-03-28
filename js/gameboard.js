@@ -1,56 +1,62 @@
 'use strict';
 
-// TILE LOGIC
-// 1. Receive profile properties from local storage
-//  - needs to include something that pairs images?
-//  - image source is needed
-// 2. Double-up images or otherwise get count so board can be rendered
-// 3. Randomize tiles and prep for rendering
-// 4. Render board
+// GET storage
+// let retrievedAccounts = localStorage.getItem('accounts');
 
-// PULL FROM LOCAL STORAGE
-// primary key : 'accounts'
+// PARSE storage
+// let parsedAccounts = JSON.parse(retrievedAccounts);
 
-// GET local storage
-
-// SET local storage
-
-// STEP 4
-
-// DOM WINDOWS
+// DOM window
 let gameboard = document.getElementById('gameboard');
-////////// [] table element needs 'gameboard' id
 
+let imageArray = [];
 
-// RENDER GAMEBOARD of 20 tiles (5 x 4)
+// collect images
+function collectImages () {
+  for (let i = 1; i < 11; i++) {
+    imageArray.push(`/img/dog${i}.png`);
+  }
+  for (let j = 1; j < 11; j++) {
+    imageArray.push(`/img/dog${j}.png`);
+  }
+}
+
+collectImages();
+
+console.log(imageArray);
+
+// generate random whole number from 0 to 19
+function randomNumberZeroToNineteen (min, max) {
+  return Math.floor(Math.random() * (max-min) + min);
+}
+///// LOGIC TO PREVENT IMAGE FROM REPEATING THREE TIMES
+
+// render gameboard of 20 tiles (4 x 5)
 function renderTable() {
   ////////// get properties from main array
 
   // create 5 rows with 4 cells each
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 4; i++) {
     // create a table row
     let tableRow = document.createElement('tr');
     // add to DOM
     gameboard.appendChild(tableRow);
 
     // add cells to the row
-    for (let j = 0; j < 4; j++) {
+    for (let j = 0; j < 5; j++) {
       // create a table cell
       let tdElement = document.createElement('td');
-      // temporary content
-      tdElement.innerHTML = 'x';
       // add to DOM
       tableRow.appendChild(tdElement);
+
+      // create an image element
+      let imgElement = document.createElement('img');
+      // add context
+      imgElement.src = imageArray[randomNumberZeroToNineteen(0, 19)];
+      // add to DOM
+      tdElement.append(imgElement);
     }
   }
 }
 
-// call function
 renderTable();
-
-// possible way to bring in img sources:
-// const image = document.createElement("img").src = "your image source";
-// box.innerHTML = ""; // remove any text from the box
-// box.append(image); // add the image inside of your element  
-
-// renderTable();
