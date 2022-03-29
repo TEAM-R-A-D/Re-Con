@@ -10,22 +10,20 @@
 let gameboard = document.getElementById('gameboard');
 let cardSelector = document.getElementsByClassName('card');
 let cards = document.querySelectorAll('div.card');
-console.log(cards);
 
-
-// let imgs = ['dog1.png', 'dog2.png', 'dog3.png', 'dog4.png', 'dog5.png', 'dog6.png', 'dog7.png', 'dog8.png', 'dog9.png', 'dog10.png'];
-let imgs = ['dog1.png', 'dog2.png'];
+let imgs = ['dog1.png', 'dog2.png', 'dog3.png', 'dog4.png', 'dog5.png', 'dog6.png', 'dog7.png', 'dog8.png', 'dog9.png', 'dog10.png'];
+// let imgs = ['dog1.png', 'dog2.png'];
 let imageArray = [];
 
 function fillImageArray() {
   let pairs = [];
-  while (imageArray.length < 2) {
+  while (imageArray.length < imgs.length) {
     let imgIndex = getRandomIndex();
     if (!imageArray.includes(imgIndex)) {
       imageArray.push(imgIndex);
     }
   }
-  while (pairs.length < 2) {
+  while (pairs.length < imgs.length) {
     let imgIndex = getRandomIndex();
     if (!pairs.includes(imgIndex)) {
       imageArray.push(imgIndex);
@@ -49,14 +47,14 @@ function renderTable() {
 
   // create 5 rows with 4 cells each
   let cardID = 1;
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 4; i++) {
     // create a table row
     let tableRow = document.createElement('tr');
     // add to DOM
     gameboard.appendChild(tableRow);
 
     // add cells to the row
-    for (let j = 0; j < 2; j++) {
+    for (let j = 0; j < 5; j++) {
       // create a table cell
       let tdElement = document.createElement('td');
       tdElement.className = 'card-container';
@@ -132,9 +130,6 @@ function handleCardClick(event) {
     }
   }
 
-  // console.log(`firstclick, ${firstClickId}`);
-  // console.log(`secondclick, ${secondClickId}`);
-
   let secondClick = '';
   if (timesClicked === 1) {
     secondClick = altText;
@@ -143,14 +138,8 @@ function handleCardClick(event) {
     firstClick = altText;
     timesClicked++;
   }
-  // console.log(firstClick);
-  // console.log(secondClick);
-  // console.log(timesClicked);
-
-  if (timesClicked === 2) {
-    firstClick = '';
-    timesClicked = 0;
-  }
+  console.log(firstClickId);
+  console.log(secondClickId);
 
   let cardWindowOne = document.getElementById(firstClickId);
   let cardWindowTwo = document.getElementById(secondClickId);
@@ -161,10 +150,21 @@ function handleCardClick(event) {
     while (cardWindowTwo.firstChild) {
       cardWindowTwo.removeChild(cardWindowTwo.firstChild);
     }
+    let staticImg = document.createElement('img');
+    staticImg.src = `/img/${firstClick}`;
+    staticImg.alt = `${firstClick}`;
+    let staticImg2 = document.createElement('img');
+    staticImg2.src = `/img/${secondClick}`;
+    staticImg2.alt = `${secondClick}`;
+    cardWindowOne.parentElement.appendChild(staticImg);
+    cardWindowTwo.parentElement.appendChild(staticImg2);
+    cardWindowOne.parentElement.removeChild(cardWindowOne.parentElement.firstChild);
+    cardWindowTwo.parentElement.removeChild(cardWindowTwo.parentElement.firstChild);
   }
-  console.log(`One = ${cardWindowOne}`);
-  console.log(`Two = ${cardWindowTwo}`);
-  console.log(cardWindowOne.firstChild);
+  if (timesClicked === 2) {
+    firstClick = '';
+    timesClicked = 0;
+  }
 }
 
 
