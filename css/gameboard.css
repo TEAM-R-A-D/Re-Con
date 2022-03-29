@@ -1,0 +1,33 @@
+/* td */
+.card-container {
+  width: 250px;
+  height: 250px;
+}
+
+/* div */
+.card {
+  width: 200px;
+  height: 150px;
+  margin: 0 auto;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+}
+
+input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.front {
+  transform: rotateY(180deg);
+}
+
+.back {
+  backface-visibility: hidden;
+}
+
+.card:focus-within {
+  transform: rotateY(180deg);
+}
