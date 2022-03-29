@@ -9,6 +9,8 @@
 // DOM window
 let gameboard = document.getElementById('gameboard');
 let cardSelector = document.getElementsByClassName('card');
+let cards = document.querySelectorAll('div.card');
+console.log(cards);
 
 
 let imgs = ['dog1.png','dog2.png','dog3.png','dog4.png','dog5.png','dog6.png','dog7.png','dog8.png','dog9.png','dog10.png'];
@@ -31,19 +33,8 @@ function fillImageArray () {
   }
 }
 
-// collect images
-function collectImages () {
-  for (let i = 1; i < 11; i++) {
-    imageArray.push(`img/dog${i}.png`);
-  }
-  for (let j = 1; j < 11; j++) {
-    imageArray.push(`img/dog${j}.png`);
-  }
-}
 
 fillImageArray();
-
-console.log(imageArray);
 
 // generate random whole number
 function getRandomIndex () {
@@ -90,14 +81,6 @@ function renderTable() {
       cardBack.alt = 'cardback1.png';
       cardElement.appendChild(cardBack);
 
-      // add context
-      /////////////////// NEED A METHOD BESIDES SPLICE?
-      // let randomNumber = imageArray.splice(randomNumberZeroToNineteen(1,imageArray.length));
-      // console.log(randomNumber);
-      ///////////////////
-      // imgElement.src = imageArray[randomNumber];
-      // add to DOM
-      // tdElement.append(imgElement);
     }
   }
 }
@@ -113,5 +96,15 @@ for(let i = 0; i < cardSelector.length; i++){
 
 function handleCardClick(event){
   let imgClicked = event.target;
-  console.log(imgClicked);
+  let altText = '';
+  if(imgClicked.className === 'card'){
+    altText = imgClicked.firstChild.alt;
+  }
+  else if(imgClicked.className === 'back'){
+    altText = imgClicked.parentElement.firstChild.alt;
+  }
+  else{
+    altText = imgClicked.alt;
+  }
+  console.log(altText);
 }
