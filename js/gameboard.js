@@ -9,6 +9,8 @@
 // DOM window
 let gameboard = document.getElementById('gameboard');
 
+
+
 let imgs = ['dog1.png','dog2.png','dog3.png','dog4.png','dog5.png','dog6.png','dog7.png','dog8.png','dog9.png','dog10.png'];
 let imageArray = [];
 
@@ -101,3 +103,13 @@ function renderTable() {
 }
 
 renderTable();
+
+let firstClick ='';
+let timesClicked = 0;
+gameboard.addEventListener('click', handleCardClick);
+function handleCardClick(event){
+  let imgClicked = event.target.alt;
+  console.log(imgClicked);
+
+
+}
