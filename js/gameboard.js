@@ -9,7 +9,25 @@
 // DOM window
 let gameboard = document.getElementById('gameboard');
 
+let imgs = ['dog1.png','dog2.png','dog3.png','dog4.png','dog5.png','dog6.png','dog7.png','dog8.png','dog9.png','dog10.png'];
 let imageArray = [];
+
+function fillImageArray () {
+  let pairs = [];
+  while (imageArray.length < 10) {
+    let imgIndex = getRandomIndex();
+    if (!imageArray.includes(imgIndex)) {
+      imageArray.push(imgIndex);
+    }
+  }
+  while (pairs.length < 10) {
+    let imgIndex = getRandomIndex();
+    if (!pairs.includes(imgIndex)) {
+      imageArray.push(imgIndex);
+      pairs.push(imgIndex);
+    }
+  }
+}
 
 // collect images
 function collectImages () {
@@ -21,13 +39,13 @@ function collectImages () {
   }
 }
 
-collectImages();
+fillImageArray();
 
 console.log(imageArray);
 
-// generate random whole number from 0 to 19
-function randomNumberZeroToNineteen (min, max) {
-  return Math.floor(Math.random() * (max-min) + min);
+// generate random whole number
+function getRandomIndex () {
+  return Math.floor(Math.random() * imgs.length);
 }
 ///// LOGIC TO PREVENT IMAGE FROM REPEATING THREE TIMES
 
@@ -46,19 +64,38 @@ function renderTable() {
     for (let j = 0; j < 5; j++) {
       // create a table cell
       let tdElement = document.createElement('td');
+      tdElement.className = 'card-container';
       // add to DOM
       tableRow.appendChild(tdElement);
 
       // create an image element
-      let imgElement = document.createElement('img');
+      let cardElement = document.createElement('div');
+      cardElement.className = 'card';
+      tdElement.appendChild(cardElement);
+
+      let frontCard = document.createElement('input');
+      let image = imgs[imageArray.pop()];
+      frontCard.className = 'front';
+      frontCard.type = 'image';
+      frontCard.src = `/img/${image}`;
+      frontCard.alt = image;
+      cardElement.appendChild(frontCard);
+
+      let cardBack = document.createElement('input');
+      cardBack.className = 'back';
+      cardBack.type = 'image';
+      cardBack.src = '/img/cardback1.png';
+      cardBack.alt = 'cardback1.png';
+      cardElement.appendChild(cardBack);
+
       // add context
       /////////////////// NEED A METHOD BESIDES SPLICE?
-      let randomNumber = imageArray.splice(randomNumberZeroToNineteen(1,imageArray.length));
-      console.log(randomNumber);
+      // let randomNumber = imageArray.splice(randomNumberZeroToNineteen(1,imageArray.length));
+      // console.log(randomNumber);
       ///////////////////
-      imgElement.src = imageArray[randomNumber];
+      // imgElement.src = imageArray[randomNumber];
       // add to DOM
-      tdElement.append(imgElement);
+      // tdElement.append(imgElement);
     }
   }
 }
