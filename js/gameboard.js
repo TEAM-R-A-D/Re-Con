@@ -173,12 +173,17 @@ function handleCardClick(event) {
 function turnCounterRender() {
   let turns = document.getElementById('turn-counter');
   let turnsElm = document.createElement('p');
-  if(turns.firstChild){
-    turns.removeChild(turns.firstChild);
+  if(timesClicked === 0){
+    turns.className = 'turnAnimation';
+    if(turns.firstChild){
+      turns.removeChild(turns.firstChild);
+    }
+    turnsElm.textContent = `Turn ${turnCounter}`;
+    turns.appendChild(turnsElm);
   }
-  turnsElm.textContent = `Turn ${turnCounter}`;
-  turns.appendChild(turnsElm);
-  console.log(turnsElm);
+  else{
+    turns.className = 'turnAnimationOff';
+  }
 }
 turnCounterRender();
 
