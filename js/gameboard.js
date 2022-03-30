@@ -1,18 +1,27 @@
 'use strict';
 
 // PROCURE storage
-// let procuredAccounts = localStorage.getItem('accounts');
+let procuredTheme = localStorage.getItem('themes');
 
 // PARSE storage
-// let parsedAccounts = JSON.parse(retrievedAccounts);
+let parsedTheme = JSON.parse(procuredTheme);
 
 // DOM window
 let gameboard = document.getElementById('gameboard');
 let cardSelector = document.getElementsByClassName('card');
 let turnCounter = 1;
 
+<<<<<<< HEAD
 //Array of img names
 let imgs = ['dog1.png', 'dog2.png', 'dog3.png', 'dog4.png', 'dog5.png', 'dog6.png', 'dog7.png', 'dog8.png', 'dog9.png', 'dog10.png'];
+=======
+let imgs = parsedTheme;
+console.log(imgs);
+console.log(procuredTheme);
+// let imgs = ['dog1.png', 'dog2.png', 'dog3.png', 'dog4.png', 'dog5.png', 'dog6.png', 'dog7.png', 'dog8.png', 'dog9.png', 'dog10.png'];
+// let imgs = ['dog1.png', 'dog2.png'];
+let imageArray = [];
+>>>>>>> 135a26d (added event listener and handling on Play! link to bring current theme over to gameboard -- mainly accomplished via new themes.js file)
 
 //array of random numbers for randomized cards
 let imageArray = [];
