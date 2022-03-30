@@ -11,11 +11,11 @@ let gameboard = document.getElementById('gameboard');
 let cardSelector = document.getElementsByClassName('card');
 let turnCounter = 1;
 
-
+//Array of img names
 let imgs = ['dog1.png', 'dog2.png', 'dog3.png', 'dog4.png', 'dog5.png', 'dog6.png', 'dog7.png', 'dog8.png', 'dog9.png', 'dog10.png'];
-// let imgs = ['dog1.png', 'dog2.png'];
-let imageArray = [];
 
+//array of random numbers for randomized cards
+let imageArray = [];
 function fillImageArray() {
   let pairs = [];
   while (imageArray.length < imgs.length) {
@@ -32,43 +32,37 @@ function fillImageArray() {
     }
   }
 }
-
-
 fillImageArray();
 
-// generate random whole number
+// generate a random number based on imgs length
 function getRandomIndex() {
   return Math.floor(Math.random() * imgs.length);
 }
-///// LOGIC TO PREVENT IMAGE FROM REPEATING THREE TIMES
 
-// render gameboard of 20 tiles (4 x 5)
+// render game board of 20 tiles (5 x 4)
 function renderTable() {
-  ////////// get properties from main array
-
-  // create 5 rows with 4 cells each
+  //cardID to give each cell an ID
   let cardID = 1;
+
+  //slow loop for table rows
   for (let i = 0; i < 4; i++) {
-    // create a table row
     let tableRow = document.createElement('tr');
-    // add to DOM
     gameboard.appendChild(tableRow);
 
-    // add cells to the row
+    // fast loop to place 5 cells in a row
     for (let j = 0; j < 5; j++) {
-      // create a table cell
       let tdElement = document.createElement('td');
       tdElement.className = 'card-container';
-      // add to DOM
       tableRow.appendChild(tdElement);
 
-      // create an image element
+      // creates a div with a class of card to contain inputs
       let cardElement = document.createElement('div');
       cardElement.className = 'card';
       cardElement.id = cardID;
       cardID++;
       tdElement.appendChild(cardElement);
 
+      //gives image attributes to the inputs, front and back to create a "card"
       let frontCard = document.createElement('input');
       let image = imgs[imageArray.pop()];
       frontCard.className = 'front';
@@ -87,32 +81,45 @@ function renderTable() {
     }
   }
 }
-
 renderTable();
 
+// Global Variables for handling click event and matches
 let firstClick = '';
 let timesClicked = 0;
 let firstClickId = '0';
 let secondClickId = '0';
 
+//Attaches Event listener to every card div
 for (let i = 0; i < cardSelector.length; i++) {
   cardSelector[i].addEventListener('click', handleCardClick);
 }
 
+// Executes every time a card is clicked
 function handleCardClick(event) {
+  //stores the target of the click
   let imgClicked = event.target;
+
+  //Takes alt text of the card clicked
   let altText = '';
   altText = pullsAltAndId(imgClicked,altText);
+
+  //Stores alt text into firstClick or second Click depending on turn iteration
   let secondClick = '';
   secondClick = storeAltTxt(secondClick, altText);
+
+  //Checks if alt texts match 
   checkMatch(secondClick);
+
+  //Resets turn iteration
   if (timesClicked === 2) {
     firstClick = '';
     timesClicked = 0;
   }
+  //Re-renders Turn counter if click goes into next turn iteration
   turnCounterRender();
 }
 
+//function that pulls alt text and ID depending on the target element which is passed through imgClicked
 function pullsAltAndId(imgClicked, altText){
   if (imgClicked.className === 'card') {
     altText = imgClicked.firstChild.alt;
@@ -143,6 +150,7 @@ function pullsAltAndId(imgClicked, altText){
   return altText;
 }
 
+// function to determine where to store altText based on turn iteration
 function storeAltTxt(secondClick, altText){
   if (timesClicked === 1) {
     secondClick = altText;
@@ -155,6 +163,7 @@ function storeAltTxt(secondClick, altText){
   return secondClick;
 }
 
+// function that will check if alt text matches; If matched will remove card contents and replace card with the image of the card
 function checkMatch(secondClick){
   let cardWindowOne = document.getElementById(firstClickId);
   let cardWindowTwo = document.getElementById(secondClickId);
@@ -178,6 +187,7 @@ function checkMatch(secondClick){
   }
 }
 
+// function that will Re-render the turn counter every time the turn iterates and also replaces the class for animations purposes
 function turnCounterRender() {
   let turns = document.getElementById('turn-counter');
   let turnsElm = document.createElement('p');
