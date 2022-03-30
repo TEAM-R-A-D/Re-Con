@@ -24,8 +24,23 @@ body {
   margin: 15px;
   border-right: 15px;
   color: #03123d;
+    animation-duration: 3s;
+    animation-name: slidein;
+  }
+  
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
 
-}
+
 
 .flexbox-item-Darius{
   min-height: 100px;
@@ -51,15 +66,14 @@ h2 {
 }
 
 .resources{
-  display: flex;
-  justify-content:center;
+  display: inline;
+  justify-content:space-evenly;
   position: relative;
-  font-size: 20px;
+  font-size: 25px;
+  text-align: center;
 }
 .links{
   display: flex;
-  position: relative;
-}
-img {
-  background-image: ;
+  justify-content: left;
+  text-align: center;
 }
