@@ -1,24 +1,26 @@
 'use strict';
 
 // PROCURE storage
-// let procuredAccounts = localStorage.getItem('accounts');
+let procuredAccounts = localStorage.getItem('accounts');
 
 // PARSE storage
-// let parsedAccounts = JSON.parse(procuredAccounts);
+let parsedAccounts = JSON.parse(procuredAccounts);
 
 // DOM window
 let gameboard = document.getElementById('gameboard');
 let cardSelector = document.getElementsByClassName('card');
 let turnCounter = 1;
 
+console.log(parsedAccounts);
+
 // select images based on incoming profile/account
 // if (PROFILE === dogs) {
   // let imgs = ['dog1.png', 'dog2.png', 'dog3.png', 'dog4.png', 'dog5.png', 'dog6.png', 'dog7.png', 'dog8.png', 'dog9.png', 'dog10.png'];
   // }
-  // else if (PROFILE === animal (easy)) {
+  // else if (PROFILE === animals (easy)) {
   //   let imgs = ['animals1.png', 'animals2.png', 'animals3.png', 'animals4.png', 'animals5.png', 'animals6.png', 'animals7.png', 'animals8.png', 'animals9.png', 'animals10.png']
   // }
-  // else if (PROFILE === animal (medium)) {
+  // else if (PROFILE === animals (medium)) {
   //   let imgs = ['animal1.png', 'animal2.png', 'animal3.png', 'animal4.png', 'animal5.png', 'animal6.png', 'animal7.png', 'animal8.png', 'animal9.png', 'animal10.png']
   // }
 let imgs = ['dog1.png', 'dog2.png', 'dog3.png', 'dog4.png', 'dog5.png', 'dog6.png', 'dog7.png', 'dog8.png', 'dog9.png', 'dog10.png'];
