@@ -1,28 +1,17 @@
 'use strict';
 
 // PROCURE storage
-let procuredAccounts = localStorage.getItem('accounts');
+// let procuredAccounts = localStorage.getItem('accounts');
 
 // PARSE storage
-let parsedAccounts = JSON.parse(procuredAccounts);
+// let parsedAccounts = JSON.parse(retrievedAccounts);
 
 // DOM window
 let gameboard = document.getElementById('gameboard');
 let cardSelector = document.getElementsByClassName('card');
 let turnCounter = 1;
 
-console.log(parsedAccounts);
 
-// select images based on incoming profile/account
-// if (PROFILE === dogs) {
-  // let imgs = ['dog1.png', 'dog2.png', 'dog3.png', 'dog4.png', 'dog5.png', 'dog6.png', 'dog7.png', 'dog8.png', 'dog9.png', 'dog10.png'];
-  // }
-  // else if (PROFILE === animals (easy)) {
-  //   let imgs = ['animals1.png', 'animals2.png', 'animals3.png', 'animals4.png', 'animals5.png', 'animals6.png', 'animals7.png', 'animals8.png', 'animals9.png', 'animals10.png']
-  // }
-  // else if (PROFILE === animals (medium)) {
-  //   let imgs = ['animal1.png', 'animal2.png', 'animal3.png', 'animal4.png', 'animal5.png', 'animal6.png', 'animal7.png', 'animal8.png', 'animal9.png', 'animal10.png']
-  // }
 let imgs = ['dog1.png', 'dog2.png', 'dog3.png', 'dog4.png', 'dog5.png', 'dog6.png', 'dog7.png', 'dog8.png', 'dog9.png', 'dog10.png'];
 // let imgs = ['dog1.png', 'dog2.png'];
 let imageArray = [];
@@ -113,8 +102,18 @@ for (let i = 0; i < cardSelector.length; i++) {
 function handleCardClick(event) {
   let imgClicked = event.target;
   let altText = '';
+  altText = pullsAltAndId(imgClicked,altText);
+  let secondClick = '';
+  secondClick = storeAltTxt(secondClick, altText);
+  checkMatch(secondClick);
+  if (timesClicked === 2) {
+    firstClick = '';
+    timesClicked = 0;
+  }
+  turnCounterRender();
+}
 
-  // console.log says div
+function pullsAltAndId(imgClicked, altText){
   if (imgClicked.className === 'card') {
     altText = imgClicked.firstChild.alt;
     if (timesClicked === 0) {
@@ -141,8 +140,10 @@ function handleCardClick(event) {
       secondClickId = imgClicked.parentElement.id;
     }
   }
+  return altText;
+}
 
-  let secondClick = '';
+function storeAltTxt(secondClick, altText){
   if (timesClicked === 1) {
     secondClick = altText;
     timesClicked++;
@@ -151,9 +152,10 @@ function handleCardClick(event) {
     firstClick = altText;
     timesClicked++;
   }
-  console.log(firstClickId);
-  console.log(secondClickId);
+  return secondClick;
+}
 
+function checkMatch(secondClick){
   let cardWindowOne = document.getElementById(firstClickId);
   let cardWindowTwo = document.getElementById(secondClickId);
   if (firstClick === secondClick) {
@@ -174,28 +176,21 @@ function handleCardClick(event) {
     cardWindowOne.parentElement.removeChild(cardWindowOne.parentElement.firstChild);
     cardWindowTwo.parentElement.removeChild(cardWindowTwo.parentElement.firstChild);
   }
-  if (timesClicked === 2) {
-    firstClick = '';
-    timesClicked = 0;
-  }
-  turnCounterRender();
 }
 
 function turnCounterRender() {
   let turns = document.getElementById('turn-counter');
   let turnsElm = document.createElement('p');
-  if(timesClicked === 0){
-    turns.className = 'turnAnimation';
-    if(turns.firstChild){
-      turns.removeChild(turns.firstChild);
-    }
-    turnsElm.textContent = `Turn ${turnCounter}`;
-    turns.appendChild(turnsElm);
-  }
-  else{
+  if(timesClicked === 1){
     turns.className = 'turnAnimationOff';
   }
+  else{
+    turns.className = 'turnAnimation';
+  }
+  if(turns.firstChild){
+    turns.removeChild(turns.firstChild);
+  }
+  turnsElm.textContent = `Turn ${turnCounter}`;
+  turns.appendChild(turnsElm);
 }
 turnCounterRender();
-
-
