@@ -9,7 +9,8 @@
 // DOM window
 let gameboard = document.getElementById('gameboard');
 let cardSelector = document.getElementsByClassName('card');
-let cards = document.querySelectorAll('div.card');
+let turnCounter = 1;
+
 
 let imgs = ['dog1.png', 'dog2.png', 'dog3.png', 'dog4.png', 'dog5.png', 'dog6.png', 'dog7.png', 'dog8.png', 'dog9.png', 'dog10.png'];
 // let imgs = ['dog1.png', 'dog2.png'];
@@ -134,6 +135,7 @@ function handleCardClick(event) {
   if (timesClicked === 1) {
     secondClick = altText;
     timesClicked++;
+    turnCounter++;
   } else {
     firstClick = altText;
     timesClicked++;
@@ -165,6 +167,19 @@ function handleCardClick(event) {
     firstClick = '';
     timesClicked = 0;
   }
+  turnCounterRender();
 }
+
+function turnCounterRender() {
+  let turns = document.getElementById('turn-counter');
+  let turnsElm = document.createElement('p');
+  if(turns.firstChild){
+    turns.removeChild(turns.firstChild);
+  }
+  turnsElm.textContent = `Turn ${turnCounter}`;
+  turns.appendChild(turnsElm);
+  console.log(turnsElm);
+}
+turnCounterRender();
 
 
