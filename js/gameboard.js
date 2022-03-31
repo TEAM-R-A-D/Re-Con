@@ -218,5 +218,11 @@ function gameWon() {
     }
     let reparseProfile = JSON.stringify(parseProfile);
     localStorage.setItem('accounts', reparseProfile);
+
+    let mainWindow = document.getElementById('win');
+    let winElem = document.createElement('p');
+    winElem.textContent = 'You Win!!';
+    winElem.id = 'winner';
+    mainWindow.appendChild(winElem);
   }
 }

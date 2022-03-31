@@ -1,4 +1,4 @@
-/* nav{
+nav{
   background-color: #5F6366;
   height: 75px;
   display: flex;
@@ -12,10 +12,13 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+
+
 } */
 * {
   font-family: 'Prompt', sans-serif;
 }
+
 
 
 header {
@@ -110,6 +113,12 @@ img{
   animation-iteration-count: 1;
 }
 
+#winner{
+  color: black;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
 @keyframes turnCard{
   50%{
     transform: rotateY(180deg);
@@ -135,6 +144,8 @@ img{
     transform: translateX(0px);
   }
 }
+
+
 
 footer{
   font-size: .5em;
