@@ -12,14 +12,11 @@ nav{
   display: flex;
   justify-content: center;
   align-items: flex-end;
+}
 
-
-} */
 * {
   font-family: 'Prompt', sans-serif;
 }
-
-
 
 header {
   background-color: #5F6366;
