@@ -1,4 +1,4 @@
-/* nav{
+nav{
   background-color: #5F6366;
   height: 75px;
   display: flex;
@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-} */
+}
 
 header {
   background-color: #5F6366;
