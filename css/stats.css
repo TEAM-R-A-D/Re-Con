@@ -6,7 +6,9 @@ header {
   background-color: #5F6366;
   color: #EDB5BF;
   font-size: 64px;
-  text-align: right;
+  font-family: 'Prompt', sans-serif;
+  font-weight: bold;
+  text-align: center;
 }
 
 header a {
