@@ -67,14 +67,14 @@ function renderTable() {
       let image = imgs[imageArray.pop()];
       frontCard.className = 'front';
       frontCard.type = 'image';
-      frontCard.src = `img/${image}`;
+      frontCard.src = `/Re-Con/img/${image}`;
       frontCard.alt = image;
       cardElement.appendChild(frontCard);
 
       let cardBack = document.createElement('input');
       cardBack.className = 'back';
       cardBack.type = 'image';
-      cardBack.src = 'img/cardback1.png';
+      cardBack.src = '/Re-Con/img/cardback1.png';
       cardBack.alt = 'cardback1.png';
       cardElement.appendChild(cardBack);
 
@@ -177,10 +177,10 @@ function checkMatch(secondClick) {
       cardWindowTwo.removeChild(cardWindowTwo.firstChild);
     }
     let staticImg = document.createElement('img');
-    staticImg.src = `img/${firstClick}`;
+    staticImg.src = `/Re-Con/img/${firstClick}`;
     staticImg.alt = `${firstClick}`;
     let staticImg2 = document.createElement('img');
-    staticImg2.src = `img/${secondClick}`;
+    staticImg2.src = `/Re-Con/img/${secondClick}`;
     staticImg2.alt = `${secondClick}`;
     cardWindowOne.parentElement.appendChild(staticImg);
     cardWindowTwo.parentElement.appendChild(staticImg2);
