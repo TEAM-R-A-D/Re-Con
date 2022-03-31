@@ -27,4 +27,3 @@ function eventHandlerThatStoresTheme(event) {
   // SET Theme object as storage
   localStorage.setItem('themes', stringifiedTheme);
 }
-

@@ -11,7 +11,6 @@ let gameboard = document.getElementById('gameboard');
 let cardSelector = document.getElementsByClassName('card');
 let turnCounter = 1;
 
-
 //Array of img names
 let imgs = parsedTheme.themeImages;
 // let imgs = ['dog1.png', 'dog2.png', 'dog3.png', 'dog4.png', 'dog5.png', 'dog6.png', 'dog7.png', 'dog8.png', 'dog9.png', 'dog10.png'];
