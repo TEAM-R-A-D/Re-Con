@@ -7,13 +7,20 @@ header {
   color: #EDB5BF;
   font-size: 64px;
   font-family: 'Prompt', sans-serif;
-  font-weight: bold;
   text-align: center;
+  width: max-content;
+  margin: auto;
+  border: 5px solid #EDB5BF;
+  padding: 20px;
 }
 
 header a {
   color: #EDB5BF;
   text-decoration: none;
+}
+
+header:hover{
+  font-weight: bold;
 }
 
 body {
