@@ -1,4 +1,4 @@
-nav{
+/* nav{
   background-color: #5F6366;
   height: 75px;
   display: flex;
@@ -12,6 +12,18 @@ nav{
   display: flex;
   justify-content: center;
   align-items: flex-end;
+} */
+
+header {
+  background-color: #5F6366;
+  color: #EDB5BF;
+  font-size: 64px;
+  text-align: right;
+}
+
+header a {
+  color: #EDB5BF;
+  text-decoration: none;
 }
 
 /* td */
