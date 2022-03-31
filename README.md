@@ -1,10 +1,30 @@
 # Re-Con
 
-### Pull request schedule
-Monday: Darius review, Andrew approve
-Tuesday:
-Wednesday:
-Thursday:
+### Contributors
+
+- Roger Reyes
+- Darius Owens
+- Andrew Schiller
+
+### Project scope
+
+- Memory/concentration game that allows you to select different themes (animals, dogs, etc!), play the game, and see your stats (all-time number of wins, etc).
+
+### Features
+
+- 20-card memory game
+- animations and turn tracker
+- profile creation
+- theme choice
+- persistent stats page
+- About Us page
+
+### Resources/Links
+
+- [w3schools](https://www.w3schools.com/) for general research on HTML/CSS/JS usage
+- [visme.co](https://visme.co/blog/website-color-schemes/) for color scheme inspiration
+- [pixabay.com](https://pixabay.com/) for free images!
+- [Learn to Code Advanced HTML & CSS](https://learn.shayhowe.com/advanced-html-css/transitions-animations/) for our gameboard animations!
 
 ### Project prep (#4)
 

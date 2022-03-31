@@ -10,11 +10,10 @@ let parsedTheme = JSON.parse(procuredTheme);
 let gameboard = document.getElementById('gameboard');
 let cardSelector = document.getElementsByClassName('card');
 let turnCounter = 1;
+let matchedPairs = 10;
 
 //Array of img names
 let imgs = parsedTheme.themeImages;
-let imageArray = [];
-
 //array of random numbers for randomized cards
 let imageArray = [];
 function fillImageArray() {
@@ -102,7 +101,7 @@ function handleCardClick(event) {
 
   //Takes alt text of the card clicked
   let altText = '';
-  altText = pullsAltAndId(imgClicked,altText);
+  altText = pullsAltAndId(imgClicked, altText);
 
   //Stores alt text into firstClick or second Click depending on turn iteration
   let secondClick = '';
@@ -116,12 +115,13 @@ function handleCardClick(event) {
     firstClick = '';
     timesClicked = 0;
   }
+  gameWon();
   //Re-renders Turn counter if click goes into next turn iteration
   turnCounterRender();
 }
 
 //function that pulls alt text and ID depending on the target element which is passed through imgClicked
-function pullsAltAndId(imgClicked, altText){
+function pullsAltAndId(imgClicked, altText) {
   if (imgClicked.className === 'card') {
     altText = imgClicked.firstChild.alt;
     if (timesClicked === 0) {
@@ -152,7 +152,7 @@ function pullsAltAndId(imgClicked, altText){
 }
 
 // function to determine where to store altText based on turn iteration
-function storeAltTxt(secondClick, altText){
+function storeAltTxt(secondClick, altText) {
   if (timesClicked === 1) {
     secondClick = altText;
     timesClicked++;
@@ -165,10 +165,11 @@ function storeAltTxt(secondClick, altText){
 }
 
 // function that will check if alt text matches; If matched will remove card contents and replace card with the image of the card
-function checkMatch(secondClick){
+function checkMatch(secondClick) {
   let cardWindowOne = document.getElementById(firstClickId);
   let cardWindowTwo = document.getElementById(secondClickId);
   if (firstClick === secondClick) {
+    matchedPairs--;
     while (cardWindowOne.firstChild) {
       cardWindowOne.removeChild(cardWindowOne.firstChild);
     }
@@ -192,16 +193,36 @@ function checkMatch(secondClick){
 function turnCounterRender() {
   let turns = document.getElementById('turn-counter');
   let turnsElm = document.createElement('p');
-  if(timesClicked === 1){
+  if (timesClicked === 1) {
     turns.className = 'turnAnimationOff';
   }
-  else{
+  else {
     turns.className = 'turnAnimation';
   }
-  if(turns.firstChild){
+  if (turns.firstChild) {
     turns.removeChild(turns.firstChild);
   }
   turnsElm.textContent = `Turn ${turnCounter}`;
   turns.appendChild(turnsElm);
 }
 turnCounterRender();
+
+function gameWon() {
+  if (matchedPairs === 0) {
+    let profile = localStorage.getItem('accounts');
+    let parseProfile = JSON.parse(profile);
+    for (let users in parseProfile) {
+      if (parseProfile[users].name === parsedTheme.user) {
+        parseProfile[users].timesPlayed++;
+      }
+    }
+    let reparseProfile = JSON.stringify(parseProfile);
+    localStorage.setItem('accounts', reparseProfile);
+
+    let mainWindow = document.getElementById('win');
+    let winElem = document.createElement('p');
+    winElem.textContent = 'You Win!!';
+    winElem.id = 'winner';
+    mainWindow.appendChild(winElem);
+  }
+}

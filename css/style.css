@@ -1,13 +1,28 @@
+* {
+  font-family: 'Prompt', sans-serif;
+}
+
 body{
   font-size: 2em;
+  font-weight: bold;
   background-color: #4D6D9A;
 }
-header{
+header {
   background-color: #5F6366;
   color: #EDB5BF;
-  font-size: 2em;
-  text-align: right;
+  font-size: 64px;
+  font-family: 'Prompt', sans-serif;
+  text-align: center;
+  width: max-content;
+  margin: auto;
+  border: 5px solid #EDB5BF;
+  padding: 20px;
 }
+
+/* h1 {
+  border: 2px solid #EDB5BF;
+} */
+
 h2{
   font-size: 2em;
 }
@@ -31,6 +46,7 @@ form{
   border-radius: 50px;
   margin: 0 auto;
 }
+
 div{
   border: 3px solid #5F6366;
   width: 250px;
@@ -47,9 +63,13 @@ a{
 }
 
 footer{
-  color: #5F6366;
+  /* color: #86B3D1; */
   font-size: .5em;
   position: fixed;
   bottom: 0;
+  font-weight: lighter;
 }
 
+#theme, #user, #username, option {
+  font-weight: 800;
+}

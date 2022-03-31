@@ -2,21 +2,46 @@
   font-family: 'Prompt', sans-serif;
 }
 
-a {
+body {
+  background-color: #86B3D1;
+ }
+
+header {
+  background-color: #5F6366;
+  color: #EDB5BF;
+  font-size: 64px;
+  font-family: 'Prompt', sans-serif;
+  text-align: center;
+  width: max-content;
+  margin: auto;
+  border: 5px solid #EDB5BF;
+  padding: 20px;
+}
+
+header a {
+  color: #EDB5BF;
+  text-decoration: none;
+}
+
+header:hover{
+  font-weight: bold;
+}
+
+/* a {
   font-size: 15px;
   border: 10px;
-  
   color:black;
-}
+} */
+
 h1{
   font-size: 37px;
+  font-family: 'Prompt', sans-serif;
+  font-weight: bold;
   padding-bottom: 25px;
   margin-bottom: 15px;
   text-align: center;
 }
-body {
- background-color: #99ced3;
-}
+
 .flexbox-container {
   display: flex;
   justify-content:center;
@@ -40,8 +65,6 @@ body {
     }
   }
 
-
-
 .flexbox-item-Darius{
   min-height: 100px;
   padding: 15px;
@@ -51,7 +74,7 @@ body {
 .flexbox-item-Roger{
 min-height: 100px;
 padding: 15px;
-background-color:#86b3d1;
+background-color:#99ced3;
 }
 .flexbox-item-Andrew{
 min-height: 100px;
@@ -59,6 +82,7 @@ padding: 15px;
 background-color:#edb5bf
 
 }
+
 h2 {
   font-size: 25px;
   color: #000000;
@@ -81,4 +105,7 @@ h2 {
 footer{
   position: fixed;
   bottom: 0;
+  text-align: left;
+  color: #000000;
+  font: 20px;
 }

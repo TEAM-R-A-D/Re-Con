@@ -1,17 +1,42 @@
-nav{
+/* nav{
   background-color: #5F6366;
   height: 75px;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-}
-#logo{
+} */
+/* #logo{
   width: 200px;
   height: 75px;
   font-size: 2em;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+} */
+
+* {
+  font-family: 'Prompt', sans-serif;
+}
+
+header {
+  background-color: #5F6366;
+  color: #EDB5BF;
+  font-size: 64px;
+  font-family: 'Prompt', sans-serif;
+  text-align: center;
+  width: max-content;
+  margin: auto;
+  border: 5px solid #EDB5BF;
+  padding: 20px;
+}
+
+header a {
+  color: #EDB5BF;
+  text-decoration: none;
+}
+
+header:hover{
+  font-weight: bold;
 }
 
 /* td */
@@ -94,6 +119,12 @@ img{
   animation-iteration-count: 1;
 }
 
+#winner{
+  color: black;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
 @keyframes turnCard{
   50%{
     transform: rotateY(180deg);
@@ -119,6 +150,8 @@ img{
     transform: translateX(0px);
   }
 }
+
+
 
 footer{
   font-size: .5em;
