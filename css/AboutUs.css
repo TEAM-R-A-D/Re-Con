@@ -6,11 +6,13 @@ body {
   background-color: #99ced3;
  }
 
-header {
+ header {
   background-color: #5F6366;
   color: #EDB5BF;
   font-size: 64px;
-  text-align: right;
+  font-family: 'Prompt', sans-serif;
+  font-weight: bold;
+  text-align: center;
 }
 
 header a {
@@ -26,6 +28,8 @@ header a {
 
 h1{
   font-size: 37px;
+  font-family: 'Prompt', sans-serif;
+  font-weight: bold;
   padding-bottom: 25px;
   margin-bottom: 15px;
   text-align: center;
