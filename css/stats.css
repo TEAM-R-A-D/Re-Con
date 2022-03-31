@@ -17,8 +17,39 @@ header a {
 }
 
 body {
-  background-color: #5f6366;
+  background-color: #4D6D9A;
 }
+
+main{
+  text-align: center;
+  font-size: 3em;
+}
+
+main p{
+  margin-top: 50px;
+  font-family: 'Fuzzy Bubbles', cursive;
+  font-size: 1.5em;
+}
+
+table{
+  margin: 50px auto;
+}
+
+th{
+  background-color: #EDB5BF;
+  border: 2px solid black;
+  padding: 10px;
+  font-family: 'Fuzzy Bubbles', cursive;
+}
+
+td{
+  background-color: #EDB5BF;
+  border: 2px solid black;
+  padding: 10px;
+  font-family: 'Fuzzy Bubbles', cursive;
+
+}
+
 footer {
   position: fixed;
   bottom: 0;
