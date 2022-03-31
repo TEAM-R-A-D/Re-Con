@@ -1,3 +1,10 @@
 * {
   font-family: 'Prompt', sans-serif;
 }
+body {
+  background-color: #5f6366;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+}

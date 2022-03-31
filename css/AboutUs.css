@@ -3,27 +3,82 @@
 }
 
 a {
-  font-size: 45px;
+  font-size: 15px;
+  border: 10px;
   
   color:black;
 }
 h1{
   font-size: 37px;
+  padding-bottom: 25px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 body {
  background-color: #99ced3;
 }
-div {
-  display: grid;
-  width:30%;
-  font-size: 20px;
-  background-color:#edb5bf;
-  color: #4d609a;
-  grid-template-columns: 33% 33% 33%;
-  padding-bottom: 15px;
+.flexbox-container {
+  display: flex;
+  justify-content:center;
+  align-items: center;
   margin: 15px;
+  border-right: 15px;
+  color: #03123d;
+    animation-duration: 3s;
+    animation-name: slidein;
+  }
+  
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+
+
+
+.flexbox-item-Darius{
+  min-height: 100px;
+  padding: 15px;
+  background-color:#edb5bf;
+
+}
+.flexbox-item-Roger{
+min-height: 100px;
+padding: 15px;
+background-color:#86b3d1;
+}
+.flexbox-item-Andrew{
+min-height: 100px;
+padding: 15px;
+background-color:#edb5bf
+
 }
 h2 {
-  font-size: 20px;
-  color: #5f6366
+  font-size: 25px;
+  color: #000000;
+  font-weight: 300px;
+}
+
+.resources{
+  display: inline;
+  justify-content:space-evenly;
+  position: relative;
+  font-size: 25px;
+  text-align: center;
+}
+.links{
+  display: flex;
+  justify-content: left;
+  text-align: center;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
 }
