@@ -12,6 +12,11 @@ header{
   font-size: 2em;
   text-align: right;
 }
+
+/* h1 {
+  border: 2px solid #EDB5BF;
+} */
+
 h2{
   font-size: 2em;
 }
@@ -51,7 +56,7 @@ a{
 }
 
 footer{
-  color: #5F6366;
+  /* color: #86B3D1; */
   font-size: .5em;
   position: fixed;
   bottom: 0;
