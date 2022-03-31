@@ -66,6 +66,6 @@ footer{
   bottom: 0;
 }
 
-#theme, #user {
-  font-weight: bold;
+#theme, #user, #username, option {
+  font-weight: 800;
 }
