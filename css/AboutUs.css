@@ -3,15 +3,14 @@
 }
 
 body {
-  background-color: #99ced3;
+  background-color: #86B3D1;
  }
 
- header {
+header {
   background-color: #5F6366;
   color: #EDB5BF;
   font-size: 64px;
   font-family: 'Prompt', sans-serif;
-  /* font-weight: bold; */
   text-align: center;
   width: max-content;
   margin: auto;
@@ -22,7 +21,10 @@ body {
 header a {
   color: #EDB5BF;
   text-decoration: none;
-  /* border: 5px solid #EDB5BF; */
+}
+
+header:hover{
+  font-weight: bold;
 }
 
 /* a {
@@ -72,7 +74,7 @@ h1{
 .flexbox-item-Roger{
 min-height: 100px;
 padding: 15px;
-background-color:#86b3d1;
+background-color:#99ced3;
 }
 .flexbox-item-Andrew{
 min-height: 100px;

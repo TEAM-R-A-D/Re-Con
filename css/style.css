@@ -12,8 +12,11 @@ header {
   color: #EDB5BF;
   font-size: 64px;
   font-family: 'Prompt', sans-serif;
-  font-weight: bold;
   text-align: center;
+  width: max-content;
+  margin: auto;
+  border: 5px solid #EDB5BF;
+  padding: 20px;
 }
 
 /* h1 {
@@ -64,6 +67,7 @@ footer{
   font-size: .5em;
   position: fixed;
   bottom: 0;
+  font-weight: lighter;
 }
 
 #theme, #user, #username, option {
