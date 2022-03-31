@@ -13,7 +13,7 @@ function handleAddUser(event) {
 // function that will be called to add user to option drop down
 function addProfile() {
   let username = document.getElementById('username').value;
-  ////////// prevent duplicate usernames
+  ////////// prevent duplicate usernames?????
   // for (let i = 0; i < accounts.profile.length; i++) {
 
   // }
@@ -46,5 +46,3 @@ loadProfiles();
 // event listener for adding user
 let userForm = document.getElementById('addUser');
 userForm.addEventListener('submit', handleAddUser);
-
-////////// store current them
