@@ -45,6 +45,4 @@ loadProfiles();
 
 // event listener for adding user
 let userForm = document.getElementById('addUser');
-userForm = addEventListener('submit', handleAddUser);
-
-// console.dir(accounts);
+userForm.addEventListener('submit', handleAddUser);
