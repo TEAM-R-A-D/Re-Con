@@ -12,23 +12,23 @@ function getProfileInfo(){
     temp.theme = newProfiles[i].theme;
     accounts.profile.push(temp);
   }
-  console.log(accounts);
 }
 getProfileInfo();
 
 function renderResultsTable(){
   let tableWindow = document.getElementById('statsTable');
-  for(let i in accounts){
+  for(let user in accounts.profile){
     let rowElem = document.createElement('tr');
     tableWindow.appendChild(rowElem);
 
     let userElem = document.createElement('td');
+    console.log(accounts.profile[user]);
     //Need to use the i iteration over accounts to load it into the text Content
-    userElem.textContent = 
+    userElem.textContent = accounts.profile[user].name;
     rowElem.appendChild(userElem);
 
     let playElem = document.createElement('td');
-    playElem.textContent = 
+    playElem.textContent = accounts.profile[user].timesPlayed;
     rowElem.appendChild(playElem);
   }
 }
